@@ -9,11 +9,17 @@ namespace Modul02
 		    //Дефиниране на променливи
 			int a = 0, b = 0;
 			int sum = 0;
+			string program_name = "Modul02 - primeri";
+			string program_version = "1.0";
 
 			//Събиране на числа
 			a = 10;
 			b = 5;
 			sum = a + b;
+
+			//Данни за програмата
+			Console.WriteLine ( program_name );
+			Console.WriteLine ( "Versiq: " + program_version + "\n\n" );
 
 			//Писане в конзола
 			Console.Write ( a );
@@ -46,6 +52,8 @@ namespace Modul02
 
 			Console.WriteLine ("\nHvashtane na ostatuk");
 			Console.WriteLine ( a % b );   //5, 1.5
+
+
 		}
 	}
 }
