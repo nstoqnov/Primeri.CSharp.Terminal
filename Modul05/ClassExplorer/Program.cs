@@ -78,7 +78,7 @@ namespace ClassExplorer
 			person _person = new person(_user, _pass);
 
 			//Достъпване на клас
-			_person.userFName = "Purvo Ime";
+			_person.userFName = "Purvo Ime: ";
 			Console.WriteLine ( _person.userFName + " " + _person.userLName );
 
 			//Console.WriteLine ( _person.getWelcomeMessage () );
