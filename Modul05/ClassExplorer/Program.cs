@@ -4,25 +4,64 @@ namespace ClassExplorer
 {
 	public class person
 	{
-		public string simpleString = "Testova promenliva ot klas";
-		public string user = "";
+		private string _userName = "";
+		private string _userPass = "";
 
-		private string hiddenString = "";
+		private string _userID = "";
+		private string _userFName = "";
+		private string _userLName = "";
 
-		public person (string _ini)
+		public string userName
 		{
-			if (_ini == "password1") hiddenString = "Potrebitel1";
-			if (_ini == "password2") hiddenString = "Potrebitel2";
-
-			user = hiddenString;
-
-			if ( hiddenString.Length > 0 )
-				simpleString = "Dobre doshli otnovo!,  " + user + "!";
-			else 
-				simpleString = "Vie nqmate dostyp do tazi programa";
-
-		
+			get { return _userName; }
 		}
+
+		public string userPass
+		{
+			get { return _userPass; }
+		}
+
+		public string userID
+		{
+			get { return _userID; }
+			set { _userID = value; }
+		}
+
+		public string userFName
+		{
+			get { return _userFName; }
+			set { _userFName = value; }
+		}
+
+		public string userLName
+		{
+			get { return _userLName; }
+			set { _userLName = value; }
+		}
+
+		public person (string _user, string _pass)
+		{
+			checkUser (_user, _pass);
+
+		}
+		private bool checkUser (string _user, string _pass)
+		{
+			if (_user == "user" && _pass == "pass") {
+				_userName = _user; _userPass = _pass;
+				//Попълване на пропъртита
+				userID = "ID: 4455845";
+				userFName = "Nikolai";
+				userLName = "Stoqnov";
+
+				return true;
+
+			}
+			return false;
+		}
+
+
+
+
 	}
 
 
@@ -32,13 +71,18 @@ namespace ClassExplorer
 
 		public static void Main (string[] args)
 		{
-			Console.Write ("Parola:"); string _user = Console.ReadLine ();
+			Console.Write ("Potrebitel:");    string _user = Console.ReadLine ();
+			Console.Write ("Parola:");        string _pass = Console.ReadLine ();
 
 			//Дефиниране на клас
-			person _person = new person(_user);
+			person _person = new person(_user, _pass);
 
 			//Достъпване на клас
-			Console.WriteLine ( _person.simpleString );
-		}
+			_person.userFName = "Purvo Ime";
+			Console.WriteLine ( _person.userFName + " " + _person.userLName );
+
+			//Console.WriteLine ( _person.getWelcomeMessage () );
+
+	}
 	}
 }
